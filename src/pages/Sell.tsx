@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2, Mic, Edit } from 'lucide-react';
 
 const Sell = () => {
   const navigate = useNavigate();
@@ -132,16 +132,53 @@ const Sell = () => {
           Back to Marketplace
         </Button>
 
+        {/* Selling Options */}
+        <div className="grid md:grid-cols-2 gap-4 mb-6 max-w-3xl mx-auto">
+          <Card 
+            className="border-2 border-primary cursor-pointer hover:bg-primary/5 transition-colors"
+            onClick={() => navigate('/voice-sell')}
+          >
+            <CardContent className="flex flex-col items-center justify-center p-8 space-y-4">
+              <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center">
+                <Mic className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-semibold mb-2">Voice Selling</h3>
+                <p className="text-sm text-muted-foreground">
+                  Speak to our AI assistant in Twi, Ga, Hausa, or English
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 border-border cursor-pointer hover:bg-secondary/50 transition-colors">
+            <CardContent className="flex flex-col items-center justify-center p-8 space-y-4">
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
+                <Edit className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-semibold mb-2">Manual Entry</h3>
+                <p className="text-sm text-muted-foreground">
+                  Type in your product details below
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         <Card className="max-w-2xl mx-auto shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-center">List Your Product</CardTitle>
+            <CardTitle className="text-2xl text-center">Manual Product Listing</CardTitle>
+            <CardDescription className="text-center">
+              Or use voice input for quick listing
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
               {/* Voice Input */}
               <div className="text-center space-y-4 py-6 border-b">
                 <p className="text-sm text-muted-foreground">
-                  Speak to describe your product
+                  Quick voice input (basic extraction)
                 </p>
                 <VoiceRecorder onTranscription={handleVoiceTranscription} />
                 {isProcessing && (
