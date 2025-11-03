@@ -23,6 +23,7 @@ export type Database = {
           latitude: number | null
           location: string
           longitude: number | null
+          phone_number: string | null
           price: number
           quantity: number
           seller_id: string
@@ -39,6 +40,7 @@ export type Database = {
           latitude?: number | null
           location: string
           longitude?: number | null
+          phone_number?: string | null
           price: number
           quantity?: number
           seller_id: string
@@ -55,6 +57,7 @@ export type Database = {
           latitude?: number | null
           location?: string
           longitude?: number | null
+          phone_number?: string | null
           price?: number
           quantity?: number
           seller_id?: string
