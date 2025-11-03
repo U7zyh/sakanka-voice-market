@@ -17,7 +17,7 @@ const Index = () => {
           
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Trade with Your{' '}
-            <span className="text-primary">Voice</span>
+            <span className="gradient-primary bg-clip-text text-transparent">Voice</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
