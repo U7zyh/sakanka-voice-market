@@ -49,7 +49,7 @@ const Marketplace = () => {
         .from('products')
         .select(`
           *,
-          profiles!products_seller_id_fkey(
+          profiles(
             full_name,
             phone_number
           )

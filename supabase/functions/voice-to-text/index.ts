@@ -75,8 +75,8 @@ serve(async (req) => {
     
     console.log(`Processing audio for language: ${language}`);
 
-    // Use Lovable AI for transcription via OpenAI Whisper
-    const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+    // Use Lovable AI Gateway for transcription via Whisper
+    const response = await fetch('https://ai.gateway.lovable.dev/v1/audio/transcriptions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${LOVABLE_API_KEY}`,
