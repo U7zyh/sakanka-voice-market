@@ -89,121 +89,139 @@ const Auth = () => {
         <Button
           variant="ghost"
           onClick={() => navigate('/')}
-          className="mb-4"
+          className="mb-6 hover:bg-primary/10"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Home
         </Button>
 
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-2xl text-center">Welcome to Sakanka</CardTitle>
-            <CardDescription className="text-center">
+        <Card className="shadow-xl border-0 animate-scale-in">
+          <CardHeader className="space-y-4 text-center pb-6">
+            <div className="mx-auto w-16 h-16 rounded-full gradient-primary flex items-center justify-center mb-2">
+              <span className="text-white font-bold text-2xl">S</span>
+            </div>
+            <CardTitle className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              Welcome to Sakanka
+            </CardTitle>
+            <CardDescription className="text-base">
               Your voice-powered marketplace
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 h-12 bg-muted">
+                <TabsTrigger value="signin" className="text-base">Sign In</TabsTrigger>
+                <TabsTrigger value="signup" className="text-base">Sign Up</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-4">
+              <TabsContent value="signin" className="pt-6">
+                <form onSubmit={handleSignIn} className="space-y-5">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email" className="text-base">Email</Label>
                     <Input
                       id="email"
                       type="email"
                       required
+                      placeholder="your@email.com"
+                      className="h-11 text-base"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password" className="text-base">Password</Label>
                     <Input
                       id="password"
                       type="password"
                       required
+                      placeholder="••••••••"
+                      className="h-11 text-base"
                       value={formData.password}
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="w-full h-11 gradient-primary text-base font-medium" disabled={isLoading}>
                     {isLoading ? 'Signing in...' : 'Sign In'}
                   </Button>
                 </form>
               </TabsContent>
 
-              <TabsContent value="signup">
+              <TabsContent value="signup" className="pt-6">
                 <form onSubmit={handleSignUp} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name</Label>
+                    <Label htmlFor="fullName" className="text-base">Full Name</Label>
                     <Input
                       id="fullName"
                       required
+                      placeholder="John Doe"
+                      className="h-11 text-base"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email" className="text-base">Email</Label>
                     <Input
                       id="signup-email"
                       type="email"
                       required
+                      placeholder="your@email.com"
+                      className="h-11 text-base"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phoneNumber">Phone Number</Label>
+                    <Label htmlFor="phoneNumber" className="text-base">Phone Number</Label>
                     <Input
                       id="phoneNumber"
                       type="tel"
-                      placeholder="+233..."
+                      placeholder="+233 24 123 4567"
+                      className="h-11 text-base"
                       value={formData.phoneNumber}
                       onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="location">Location</Label>
+                    <Label htmlFor="location" className="text-base">Location</Label>
                     <Input
                       id="location"
                       placeholder="e.g., Accra, Kumasi"
+                      className="h-11 text-base"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label>I want to</Label>
+                  <div className="space-y-3">
+                    <Label className="text-base">I want to</Label>
                     <RadioGroup
                       value={formData.role}
                       onValueChange={(value) => setFormData({ ...formData, role: value as 'buyer' | 'seller' })}
+                      className="space-y-3"
                     >
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-3 p-3 rounded-lg border border-border hover:bg-muted/50 cursor-pointer">
                         <RadioGroupItem value="buyer" id="buyer" />
-                        <Label htmlFor="buyer" className="font-normal">Buy products</Label>
+                        <Label htmlFor="buyer" className="font-normal cursor-pointer flex-1">Buy products</Label>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-3 p-3 rounded-lg border border-border hover:bg-muted/50 cursor-pointer">
                         <RadioGroupItem value="seller" id="seller" />
-                        <Label htmlFor="seller" className="font-normal">Sell products</Label>
+                        <Label htmlFor="seller" className="font-normal cursor-pointer flex-1">Sell products</Label>
                       </div>
                     </RadioGroup>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
+                    <Label htmlFor="signup-password" className="text-base">Password</Label>
                     <Input
                       id="signup-password"
                       type="password"
                       required
+                      placeholder="••••••••"
+                      className="h-11 text-base"
                       value={formData.password}
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="w-full h-11 gradient-primary text-base font-medium" disabled={isLoading}>
                     {isLoading ? 'Creating account...' : 'Create Account'}
                   </Button>
                 </form>

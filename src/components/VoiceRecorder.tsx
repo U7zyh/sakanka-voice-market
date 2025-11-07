@@ -94,14 +94,14 @@ export const VoiceRecorder = ({ onTranscription, language = 'twi', className }: 
   };
 
   return (
-    <div className={cn("flex flex-col items-center gap-4", className)}>
+    <div className={cn("flex flex-col items-center gap-6", className)}>
       {!isRecording && !isProcessing && (
         <Button
           size="lg"
           onClick={startRecording}
-          className="h-24 w-24 rounded-full gradient-primary hover:scale-105 transition-transform shadow-lg"
+          className="h-32 w-32 rounded-full gradient-primary hover:scale-110 transition-all duration-300 shadow-glow animate-float"
         >
-          <Mic className="h-10 w-10" />
+          <Mic className="h-14 w-14" />
         </Button>
       )}
       
@@ -109,21 +109,26 @@ export const VoiceRecorder = ({ onTranscription, language = 'twi', className }: 
         <Button
           size="lg"
           onClick={stopRecording}
-          className="h-24 w-24 rounded-full bg-destructive hover:bg-destructive/90 voice-pulse animate-pulse"
+          className="h-32 w-32 rounded-full bg-destructive hover:bg-destructive/90 voice-pulse shadow-xl"
         >
-          <Square className="h-10 w-10" />
+          <Square className="h-14 w-14" />
         </Button>
       )}
       
       {isProcessing && (
-        <div className="h-24 w-24 rounded-full bg-primary flex items-center justify-center">
-          <Loader2 className="h-10 w-10 animate-spin text-primary-foreground" />
+        <div className="h-32 w-32 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow">
+          <Loader2 className="h-14 w-14 animate-spin text-white" />
         </div>
       )}
       
-      <p className="text-sm text-muted-foreground text-center">
-        {isRecording ? 'Recording... Tap to stop' : isProcessing ? 'Processing...' : 'Tap to speak'}
-      </p>
+      <div className="text-center space-y-1">
+        <p className="text-base font-medium">
+          {isRecording ? 'Listening...' : isProcessing ? 'Processing your voice...' : 'Tap to start'}
+        </p>
+        <p className="text-sm text-muted-foreground">
+          {isRecording ? 'Speak clearly, tap when done' : isProcessing ? 'Please wait' : 'Speak in Twi, Ga, or Hausa'}
+        </p>
+      </div>
     </div>
   );
 };

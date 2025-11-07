@@ -54,13 +54,16 @@ All colors MUST be HSL.
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(20 5% 98%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(16 100% 60% / 0.1);
-    --shadow-md: 0 4px 16px hsl(16 100% 60% / 0.15);
-    --shadow-lg: 0 8px 32px hsl(16 100% 60% / 0.2);
+    --shadow-sm: 0 1px 3px hsl(20 10% 10% / 0.1), 0 1px 2px hsl(20 10% 10% / 0.06);
+    --shadow-md: 0 4px 6px -1px hsl(20 10% 10% / 0.1), 0 2px 4px -1px hsl(20 10% 10% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(20 10% 10% / 0.1), 0 4px 6px -2px hsl(20 10% 10% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(20 10% 10% / 0.1), 0 10px 10px -5px hsl(20 10% 10% / 0.04);
     --shadow-voice: 0 0 0 0 hsl(16 100% 60% / 0.4);
+    --shadow-glow: 0 0 20px hsl(16 100% 60% / 0.3);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
@@ -129,6 +132,18 @@ All colors MUST be HSL.
   .shadow-voice {
     box-shadow: var(--shadow-voice);
   }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
 }
 
 @keyframes voice-pulse {
@@ -139,5 +154,25 @@ All colors MUST be HSL.
   50% {
     opacity: 0.8;
     box-shadow: 0 0 0 20px hsl(var(--voice-active) / 0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

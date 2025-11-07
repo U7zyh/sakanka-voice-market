@@ -8,95 +8,101 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="gradient-hero min-h-[90vh] flex items-center justify-center px-4">
-        <div className="container mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
+      <section className="gradient-hero min-h-[90vh] flex items-center justify-center px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto text-center space-y-10 relative z-10 animate-scale-in">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary mb-4 shadow-sm">
             <Mic className="h-4 w-4" />
-            <span className="text-sm font-medium">Voice-First Marketplace</span>
+            <span className="text-sm font-semibold">Voice-First Marketplace</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
             Trade with Your{' '}
             <span className="gradient-primary bg-clip-text text-transparent">Voice</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Sakanka connects Ghana's informal market traders through voice-powered technology.
-            Buy and sell in Twi, Ga, or Hausa - no typing needed.
+            Buy and sell in <span className="font-semibold text-foreground">Twi, Ga, or Hausa</span> - no typing needed.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-4">
             <Button
               size="lg"
               onClick={() => navigate('/auth')}
-              className="gradient-primary text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow"
+              className="gradient-primary text-lg px-10 py-7 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               Get Started
-              <Mic className="ml-2 h-5 w-5" />
+              <Mic className="ml-2 h-6 w-6" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               onClick={() => navigate('/marketplace')}
-              className="text-lg px-8 py-6"
+              className="text-lg px-10 py-7 border-2 hover:bg-accent hover:scale-105 transition-all duration-300"
             >
               Browse Products
-              <Search className="ml-2 h-5 w-5" />
+              <Search className="ml-2 h-6 w-6" />
             </Button>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-12">
-            <div>
-              <div className="text-3xl font-bold text-primary">3</div>
-              <div className="text-sm text-muted-foreground">Languages</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto pt-16">
+            <div className="bg-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">3</div>
+              <div className="text-base text-muted-foreground mt-2 font-medium">Languages Supported</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary">100%</div>
-              <div className="text-sm text-muted-foreground">Voice-Powered</div>
+            <div className="bg-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">100%</div>
+              <div className="text-base text-muted-foreground mt-2 font-medium">Voice-Powered</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary">0</div>
-              <div className="text-sm text-muted-foreground">Typing Required</div>
+            <div className="bg-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">0</div>
+              <div className="text-base text-muted-foreground mt-2 font-medium">Typing Required</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-background">
+      <section className="py-24 px-4 bg-background">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            How Sakanka Works
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+              How Sakanka Works
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Three simple steps to start trading with your voice
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center space-y-4 p-6 rounded-2xl gradient-card hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary">
-                <Mic className="h-8 w-8 text-white" />
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="group text-center space-y-5 p-8 rounded-3xl gradient-card hover:shadow-2xl transition-all duration-300 border-0">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full gradient-primary shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Mic className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold">Speak Your Listing</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-2xl font-bold">Speak Your Listing</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Describe what you're selling in your own language. Our AI understands Twi, Ga, and Hausa.
               </p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl gradient-card hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary">
-                <Search className="h-8 w-8 text-white" />
+            <div className="group text-center space-y-5 p-8 rounded-3xl gradient-card hover:shadow-2xl transition-all duration-300 border-0">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full gradient-primary shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Search className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold">Voice Search</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-2xl font-bold">Voice Search</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Find products by simply speaking. No need to type or spell complicated words.
               </p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl gradient-card hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary">
-                <Users className="h-8 w-8 text-white" />
+            <div className="group text-center space-y-5 p-8 rounded-3xl gradient-card hover:shadow-2xl transition-all duration-300 border-0">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full gradient-primary shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold">Connect & Trade</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-2xl font-bold">Connect & Trade</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Direct contact with sellers via phone. Arrange your own delivery and payment.
               </p>
             </div>
@@ -184,9 +190,22 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t">
-        <div className="container mx-auto text-center text-sm text-muted-foreground">
-          <p>© 2025 Sakanka. Empowering Ghana's informal market traders.</p>
+      <footer className="py-12 px-4 border-t bg-muted/30">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+                <span className="text-white font-bold text-lg">S</span>
+              </div>
+              <div>
+                <p className="font-bold text-lg bg-gradient-primary bg-clip-text text-transparent">Sakanka</p>
+                <p className="text-xs text-muted-foreground">Voice Marketplace</p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              © 2025 Sakanka. Empowering Ghana's informal market traders.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
