@@ -9,7 +9,7 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="gradient-hero min-h-[90vh] flex items-center justify-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none -z-10"></div>
         <div className="container mx-auto text-center space-y-10 relative z-10 animate-scale-in">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary mb-4 shadow-sm">
             <Mic className="h-4 w-4" />
