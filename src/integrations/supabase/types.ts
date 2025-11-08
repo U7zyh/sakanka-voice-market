@@ -20,6 +20,7 @@ export type Database = {
           description: string | null
           id: string
           image_url: string | null
+          language: string | null
           latitude: number | null
           location: string
           longitude: number | null
@@ -37,6 +38,7 @@ export type Database = {
           description?: string | null
           id?: string
           image_url?: string | null
+          language?: string | null
           latitude?: number | null
           location: string
           longitude?: number | null
@@ -54,6 +56,7 @@ export type Database = {
           description?: string | null
           id?: string
           image_url?: string | null
+          language?: string | null
           latitude?: number | null
           location?: string
           longitude?: number | null
@@ -124,6 +127,20 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_product_with_details: {
+        Args: {
+          p_description: string
+          p_image_url?: string
+          p_language?: string
+          p_location: string
+          p_phone_number?: string
+          p_price: number
+          p_quantity: number
+          p_seller_id: string
+          p_title: string
+        }
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
