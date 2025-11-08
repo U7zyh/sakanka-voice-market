@@ -1,1 +1,22 @@
 project_id = "fyojcjulenqolbtvkutm"
+
+[functions.create-product]
+verify_jwt = true
+
+[functions.extract-product-info]
+verify_jwt = false
+
+[functions.search-products]
+verify_jwt = false
+
+[functions.text-to-speech]
+verify_jwt = false
+
+[functions.voice-assistant]
+verify_jwt = false
+
+[functions.voice-to-text]
+verify_jwt = false
+
+[functions.ussd-handler]
+verify_jwt = false
