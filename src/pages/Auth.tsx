@@ -31,6 +31,7 @@ const Auth = () => {
         email: formData.email,
         password: formData.password,
         options: {
+          emailRedirectTo: `${window.location.origin}/marketplace`,
           data: {
             full_name: formData.fullName,
             phone_number: formData.phoneNumber,
@@ -84,8 +85,15 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 gradient-hero">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-background">
+      {/* Floating shapes background */}
+      <div className="floating-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
+      </div>
+
+      <div className="w-full max-w-md relative z-10">
         <Button
           variant="ghost"
           onClick={() => navigate('/')}
@@ -95,12 +103,12 @@ const Auth = () => {
           Back to Home
         </Button>
 
-        <Card className="shadow-xl border-0 animate-scale-in">
+        <Card className="shadow-elegant border-0 glass-card">
           <CardHeader className="space-y-4 text-center pb-6">
-            <div className="mx-auto w-16 h-16 rounded-full gradient-primary flex items-center justify-center mb-2">
-              <span className="text-white font-bold text-2xl">S</span>
+            <div className="mx-auto w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-2 glow">
+              <span className="text-white font-bold text-2xl">🎤</span>
             </div>
-            <CardTitle className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <CardTitle className="text-3xl font-black gradient-text">
               Welcome to Sakanka
             </CardTitle>
             <CardDescription className="text-base">
@@ -140,7 +148,7 @@ const Auth = () => {
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                   </div>
-                  <Button type="submit" className="w-full h-11 gradient-primary text-base font-medium" disabled={isLoading}>
+                  <Button type="submit" className="w-full h-11 gradient-bg text-white text-base font-bold pulse-glow hover:opacity-90" disabled={isLoading}>
                     {isLoading ? 'Signing in...' : 'Sign In'}
                   </Button>
                 </form>
@@ -221,7 +229,7 @@ const Auth = () => {
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                   </div>
-                  <Button type="submit" className="w-full h-11 gradient-primary text-base font-medium" disabled={isLoading}>
+                  <Button type="submit" className="w-full h-11 gradient-bg text-white text-base font-bold pulse-glow hover:opacity-90" disabled={isLoading}>
                     {isLoading ? 'Creating account...' : 'Create Account'}
                   </Button>
                 </form>
